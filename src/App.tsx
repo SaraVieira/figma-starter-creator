@@ -18,6 +18,7 @@ import { RadioGroup, RadioGroupItem } from "./components/ui/radio-group";
 import { Input } from "./components/ui/input";
 import { Toaster } from "./components/ui/toaster";
 import { createZip } from "./lib/zip";
+import { Hero } from "./components/hero";
 
 const FormSchema = z.object({
   framework: z.enum(["none", "react", "vue"], {
@@ -52,22 +53,11 @@ function App() {
       <Toaster />
       <Header />
       <main className="container m-auto mt-12">
-        <section className="header">
-          <div className="title-wrapper">
-            <h1 className="sweet-title">
-              <span data-text="Figma" className="left-3">
-                Figma
-              </span>
-              <span data-text="Plugins">Plugins</span>
-            </h1>
-            <span className="top-title">So you want to make</span>
-            <span className="bottom-title">You came to the right place!</span>
-          </div>
-        </section>
+        <Hero />
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="w-2/3 space-y-6 mx-auto mt-12"
+            className="w-2/3 space-y-6 mx-auto pt-32"
           >
             <div className="flex justify-center gap-8 items-center">
               <FormField
