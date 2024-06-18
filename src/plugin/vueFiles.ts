@@ -1,5 +1,5 @@
 // src/ui/main.js
-export const mainFile = `import { createApp } from "vue";
+export const mainFileVue = `import { createApp } from "vue";
 import ui from "./ui.vue";
 import "../styles/index.css";
 import "figma-plugin-ds/dist/figma-plugin-ds.css";
@@ -36,7 +36,7 @@ const cancel = () => {
   <section class="flex flex-col gap-4 justify-center h-full px-4">
     <div class="onboarding-tip flex justify-center">
       <div class="icon icon--distribute-vertical-spacing"></div>
-      <div class="onboarding-tip__msg">The Blender Array Modifier</div>
+      <div class="onboarding-tip__msg">Rectangle Maker</div>
     </div>
     <div class="input flex">
       <div class="label">How many rectangles?</div>

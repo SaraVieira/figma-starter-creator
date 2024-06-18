@@ -1,5 +1,5 @@
 // src/ui/main.jsx
-export const mainFile = `import React from "react";
+export const mainFileReact = `import React from "react";
 import ReactDOM from "react-dom/client";
 import "../styles/index.css";
 import "figma-plugin-ds/dist/figma-plugin-ds.css";
@@ -10,13 +10,13 @@ console.log("HERE");
 ReactDOM.createRoot(document.getElementById("ui")).render(<UI />);
 `;
 // src/ui/ui.html
-export const HTML = `
+export const HTMLReact = `
 <div id="ui"></div>
 <script type="module" src="main.jsx"></script>
 `;
 
 // src/ui/UI.jsx
-export const UI = `import { useState } from "react";
+export const UIReact = `import { useState } from "react";
 
 export const UI = () => {
   const [count, setCount] = useState(5);
@@ -40,7 +40,7 @@ export const UI = () => {
     <section class="flex flex-col gap-4 justify-center h-full px-4">
       <div class="onboarding-tip flex justify-center">
         <div class="icon icon--distribute-vertical-spacing"></div>
-        <div class="onboarding-tip__msg">The Blender Array Modifier</div>
+        <div class="onboarding-tip__msg">React Maker</div>
       </div>
       <div class="input flex">
         <div class="label">How many rectangles?</div>

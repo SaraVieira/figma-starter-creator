@@ -4,6 +4,8 @@ import { Button } from "./components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useToast } from "./components/ui/use-toast";
+import { saveAs } from "file-saver";
+
 import {
   Form,
   FormControl,
@@ -15,6 +17,7 @@ import {
 import { RadioGroup, RadioGroupItem } from "./components/ui/radio-group";
 import { Input } from "./components/ui/input";
 import { Toaster } from "./components/ui/toaster";
+import { createZip } from "./lib/zip";
 
 const FormSchema = z.object({
   framework: z.enum(["none", "react", "vue"], {
@@ -31,12 +34,15 @@ function App() {
     resolver: zodResolver(FormSchema),
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log("HERE");
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
     toast({
       title: "You submitted the following values:",
       description: <pre>{JSON.stringify(data)}</pre>,
     });
+    const zip = createZip(data);
+    const blob = await zip.generateAsync({ type: "blob" });
+
+    saveAs(blob, `${data.name}.zip`);
   }
   return (
     <div className="min-h-screen">
@@ -60,7 +66,7 @@ function App() {
             onSubmit={form.handleSubmit(onSubmit)}
             className="w-2/3 space-y-6 mt-12"
           >
-            <div className="flex justify-between gap-8">
+            <div className="flex justify-between gap-8 items-center">
               <FormField
                 control={form.control}
                 name="name"
@@ -84,7 +90,7 @@ function App() {
                       <RadioGroup
                         onValueChange={field.onChange}
                         defaultValue={field.value}
-                        className="flex flex-col space-y-1"
+                        className="flex space-x-2"
                       >
                         <FormItem className="flex items-center space-x-3 space-y-0">
                           <FormControl>

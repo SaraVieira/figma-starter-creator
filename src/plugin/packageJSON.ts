@@ -12,7 +12,7 @@ export const packageJSON = ({
 "react-dom": "^18.3.1",`;
       break;
     case "vue":
-      deps = `"vue": "^3.4.29"`;
+      deps = `"vue": "^3.4.29",`;
       break;
     default:
       break;
