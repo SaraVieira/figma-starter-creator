@@ -1,0 +1,7 @@
+{
+  "name": "blender-array-react",
+  "api": "1.0.0",
+  "editorType": ["figma"],
+  "main": "dist/src/code/code.js",
+  "ui": "dist/src/ui/ui.html"
+}
