@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useToast } from "./components/ui/use-toast";
 import { saveAs } from "file-saver";
-
+import slugify from "slugify";
 import {
   Form,
   FormControl,
@@ -35,14 +35,17 @@ function App() {
   });
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    toast({
-      title: "You submitted the following values:",
-      description: <pre>{JSON.stringify(data)}</pre>,
+    const name = slugify(data.name);
+    const zip = createZip({
+      ...data,
+      name,
     });
-    const zip = createZip(data);
     const blob = await zip.generateAsync({ type: "blob" });
 
-    saveAs(blob, `${data.name}.zip`);
+    saveAs(blob, `${name}.zip`);
+    toast({
+      title: "Your new zip is ready",
+    });
   }
   return (
     <div className="min-h-screen">
@@ -64,9 +67,9 @@ function App() {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="w-2/3 space-y-6 mt-12"
+            className="w-2/3 space-y-6 mx-auto mt-12"
           >
-            <div className="flex justify-between gap-8 items-center">
+            <div className="flex justify-center gap-8 items-center">
               <FormField
                 control={form.control}
                 name="name"
@@ -117,7 +120,9 @@ function App() {
                 )}
               />
             </div>
-            <Button type="submit">Submit</Button>
+            <Button type="submit" className="w-full">
+              Download Zip
+            </Button>
           </form>
         </Form>
       </main>
