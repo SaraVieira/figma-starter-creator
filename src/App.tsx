@@ -35,7 +35,7 @@ function App() {
   });
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    const name = slugify(data.name);
+    const name = slugify(data.name, { lower: true });
     const zip = createZip({
       ...data,
       name,
