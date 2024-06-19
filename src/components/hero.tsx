@@ -9,10 +9,10 @@ export const Hero = () => {
           <span data-text="Plugins" className="block relative">
             Plugins
           </span>
+          <span data-text="Starters" className="block relative">
+            Starters
+          </span>
         </h1>
-        <span className="top-title text-foreground order-1 text-center mb-4 pr-8 block">
-          So you want to make
-        </span>
       </div>
     </section>
   );

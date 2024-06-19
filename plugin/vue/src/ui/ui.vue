@@ -8,7 +8,7 @@ const create = () => {
   window.parent.postMessage(
     {
       pluginMessage: {
-        type: "create-rectangles",
+        type: "array-modifier",
         count: count.value,
         spacingX: spacingX.value,
         spacingY: spacingY.value,

@@ -22,6 +22,10 @@ module.exports = {
 export const styles = `@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --black3: rgba(0, 0, 0, 0.6);
+}
 `;
 
 export const manifest = (name: string) => `{

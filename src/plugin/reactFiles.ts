@@ -40,7 +40,7 @@ export const UI = () => {
     <section class="flex flex-col gap-4 justify-center h-full px-4">
       <div class="onboarding-tip flex justify-center">
         <div class="icon icon--distribute-vertical-spacing"></div>
-        <div class="onboarding-tip__msg">React Maker</div>
+        <div class="onboarding-tip__msg">Rectangle Maker</div>
       </div>
       <div class="input flex">
         <div class="label">How many rectangles?</div>
