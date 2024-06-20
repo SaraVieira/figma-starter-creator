@@ -25,6 +25,7 @@ import { Input } from "./components/ui/input";
 import { Toaster } from "./components/ui/toaster";
 import { createZip } from "./lib/zip";
 import { Hero } from "./components/hero";
+import { FAQ } from "./components/FAQ";
 
 const FormSchema = z.object({
   framework: z.enum(["vanilla", "react", "vue"], {
@@ -57,7 +58,6 @@ function App() {
   return (
     <div className="min-h-screen mb-12">
       <Toaster />
-      <Header />
       <main className="container m-auto mt-12">
         <Hero />
         <div className="w-2/3 mx-auto">
@@ -122,42 +122,7 @@ function App() {
               </Button>
             </form>
           </Form>
-          <Accordion type="single" collapsible className="mt-12">
-            <AccordionItem value="item-1">
-              <AccordionTrigger>What is this?</AccordionTrigger>
-              <AccordionContent>
-                This website offers an easy way to download starters to make
-                your dream figma plugin without messing with config files
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger>What comes bundled?</AccordionTrigger>
-              <AccordionContent>
-                All projects come with all the config created and also bring in{" "}
-                <a href="https://tailwindcss.com/" target="_blank">
-                  tailwind
-                </a>{" "}
-                and{" "}
-                <a
-                  href="https://github.com/thomas-lowry/figma-plugin-ds"
-                  target="_blank"
-                >
-                  Figma Plugin Design System
-                </a>{" "}
-                that is a lightweight UI library for creating Figma plugins. In
-                terms of functionality, it's a small plugin that creates
-                rectangles.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-3">
-              <AccordionTrigger>How do I run this?</AccordionTrigger>
-              <AccordionContent>
-                You will need to have node installed, after that in your
-                terminal <code>cd</code> into the folder and run{" "}
-                <code>npm i && npm run dev</code> to start the server.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+          <FAQ />
         </div>
       </main>
       <footer className="text-muted-foreground container mx-auto justify-center flex mt-12 text-sm gap-12">

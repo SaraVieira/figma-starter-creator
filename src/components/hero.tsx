@@ -1,6 +1,6 @@
 export const Hero = () => {
   return (
-    <section className="flex items-center justify-center">
+    <section className="flex items-center justify-center mt-24">
       <div className="grid items-center justify-center skew-y-[-10deg]">
         <h1 className="title order-2 text-red-50 uppercase font-black text-center">
           <span data-text="Figma" className="block relative">
