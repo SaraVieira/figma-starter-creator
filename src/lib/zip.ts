@@ -9,6 +9,7 @@ import {
 import {
   ViteUIConfigReact,
   viteCode,
+  viteUIConfigVanilla,
   viteUIConfigVue,
 } from "../plugin/viteConfigs";
 import { packageJSON } from "../plugin/packageJSON";
@@ -16,6 +17,7 @@ import { commonBE } from "../plugin/commonBE";
 import { HTML as HTMLVue, UIVue, mainFileVue } from "../plugin/vueFiles";
 import JSZip from "jszip";
 import { HTMLReact, UIReact, mainFileReact } from "@/plugin/reactFiles";
+import { HTMLVanilla, UIVanilla } from "@/plugin/vannilaFiles";
 
 export const createZip = ({
   framework,
@@ -54,6 +56,12 @@ export const createZip = ({
     zip.file("src/ui/ui.html", HTMLReact);
     zip.file("src/ui/UI.jsx", UIReact);
     zip.file("src/ui/main.jsx", mainFileReact);
+  }
+
+  if (framework === "vanilla") {
+    zip.file("vite-ui.config.js", viteUIConfigVanilla);
+    zip.file("src/ui/ui.html", HTMLVanilla);
+    zip.file("src/ui/ui.ts", UIVanilla);
   }
 
   return zip;

@@ -10,7 +10,7 @@ module.exports = {
 export const tailwindConfig = `
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/ui.html", "./src/**/*.{js,ts,jsx,tsx,vue}"],
+  content: ["./src/ui/ui.html", "./src/**/*.{js,ts,jsx,tsx,vue}"],
   theme: {
     extend: {},
   },
@@ -43,8 +43,8 @@ dist/
 `;
 
 export const TSConfig = (framework: string) => {
-  return framework === "vue"
-    ? `{
+  if (framework === "vue") {
+    return `{
   "compilerOptions": {
     "lib": ["es5", "es6", "dom"],
     "outDir": "./dist/",
@@ -56,8 +56,11 @@ export const TSConfig = (framework: string) => {
     "typeRoots": ["./node_modules/@types", "./node_modules/@figma"]
   },
   "include": ["src/**/*.ts", "src/**/*.vue"]
-}`
-    : `{
+}`;
+  }
+
+  if (framework === "react") {
+    return `{
   "compilerOptions": {
     "composite": true,
     "target": "ES2020",
@@ -83,4 +86,18 @@ export const TSConfig = (framework: string) => {
   "include": ["src"]
 }
 `;
+  }
+
+  if (framework === "vanilla") {
+    return `{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["es6", "dom"],
+    "strict": true,
+    "typeRoots": ["./node_modules/@types", "./node_modules/@figma"]
+  }
+}`;
+  }
+
+  return "";
 };

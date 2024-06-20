@@ -21,7 +21,7 @@ import { createZip } from "./lib/zip";
 import { Hero } from "./components/hero";
 
 const FormSchema = z.object({
-  framework: z.enum(["none", "react", "vue"], {
+  framework: z.enum(["vanilla", "react", "vue"], {
     required_error: "You need to select a framework.",
   }),
   name: z.string({
@@ -99,7 +99,7 @@ function App() {
                         </FormItem>
                         <FormItem className="flex items-center space-x-3 space-y-0">
                           <FormControl>
-                            <RadioGroupItem value="none" />
+                            <RadioGroupItem value="vanilla" />
                           </FormControl>
                           <FormLabel className="font-normal">None</FormLabel>
                         </FormItem>
