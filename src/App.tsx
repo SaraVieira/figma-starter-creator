@@ -1,17 +1,10 @@
 import { z } from "zod";
-import { Header } from "./components/header";
 import { Button } from "./components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useToast } from "./components/ui/use-toast";
 import { saveAs } from "file-saver";
 import slugify from "slugify";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "./components/ui/accordion";
 import {
   Form,
   FormControl,
