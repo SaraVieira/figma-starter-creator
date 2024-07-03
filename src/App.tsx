@@ -129,7 +129,7 @@ function App() {
         <span>
           Made by{" "}
           <a
-            href="twitter.com/NikkitaFTW"
+            href="https://twitter.com/NikkitaFTW"
             target="_blank"
             className="underline"
           >
