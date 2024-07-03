@@ -2,10 +2,7 @@
 export const mainFileReact = `import React from "react";
 import ReactDOM from "react-dom/client";
 import "../styles/index.css";
-import "figma-plugin-ds/dist/figma-plugin-ds.css";
 import { UI } from "./UI";
-
-console.log("HERE");
 
 ReactDOM.createRoot(document.getElementById("ui")).render(<UI />);
 `;
@@ -36,29 +33,42 @@ export const UI = () => {
     window.parent.postMessage({ pluginMessage: { type: "cancel" } }, "*");
   };
 
+
+
   return (
     <section class="flex flex-col gap-4 justify-center h-full px-4">
-      <div class="onboarding-tip flex justify-center">
-        <div class="icon icon--distribute-vertical-spacing"></div>
-        <div class="onboarding-tip__msg">Rectangle Maker</div>
-      </div>
-      <div class="input flex">
-        <div class="label">How many rectangles?</div>
+      <header>
+        <svg
+          width="24"
+          height="24"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+        >
+          <path stroke="none" d="M0 0h24v24H0z"></path>
+          <path d="M17 17v-4l-5 3-5-3v4l5 3zM17 8V4l-5 3-5-3v4l5 3z"></path>
+        </svg>
+        <h1>The Blender Array Modifier</h1>
+      </header>
+      <div class="input-wrapper">
+        <label>How many rectangles?</label>
         <input
           type="number"
           value={count}
           onChange={(e) => setCount(e.target.value)}
-          class="input__field"
         />
       </div>
-      <div class="flex gap-4 justify-center">
-        <button class="button button--primary" onClick={create}>
+      <footer class="flex gap-4 justify-center">
+        <button class="primary" onClick={create}>
           Create
         </button>
-        <button class="button button--primary-destructive" onClick={cancel}>
+        <button class="destructive" onClick={cancel}>
           Cancel
         </button>
-      </div>
+      </footer>
     </section>
   );
 };

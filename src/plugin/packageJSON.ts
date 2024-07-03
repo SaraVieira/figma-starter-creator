@@ -34,7 +34,6 @@ export const packageJSON = ({
   "dependencies": {
     "@figma/plugin-typings": "^1.96.0",
     "autoprefixer": "^10.4.19",
-    "figma-plugin-ds": "^1.0.1",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
     ${deps}

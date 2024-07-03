@@ -23,8 +23,58 @@ export const styles = `@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --black3: rgba(0, 0, 0, 0.6);
+* {
+  color: var(--figma-color-text);
+}
+
+section {
+  @apply flex flex-col gap-4 justify-center h-full px-4;
+}
+
+footer {
+  @apply flex gap-4 justify-center;
+}
+
+header {
+  @apply flex justify-center font-semibold text-sm items-center;
+}
+
+label {
+  color: var(--figma-color-text-secondary);
+  @apply text-xs;
+}
+
+input {
+  @apply rounded-sm w-full box-border h-7 cursor-default min-w-0 bg-clip-padding p-0 px-2 bg-transparent text-xs;
+  color: var(--figma-color-text, #333333);
+  fill: var(--figma-color-icon, #333333);
+  border: 1px solid transparent;
+}
+
+.input-wrapper {
+  @apply grid grid-cols-2 items-center gap-2;
+}
+
+button {
+  line-height: 32px;
+  @apply text-xs h-8 rounded-md bg-transparent flex items-center justify-center shrink-0 py-0 px-3 select-none bg-clip-padding box-border font-medium max-w-[200px] cursor-default;
+}
+
+.primary {
+  color: var(--figma-color-text);
+  background-color: var(--figma-color-bg-brand);
+}
+
+.primary:hover {
+  background-color: var(--figma-color-bg-brand-hover);
+}
+
+.destructive {
+  background-color: var(--figma-color-bg-danger);
+}
+
+.destructive:hover {
+  background-color: var(--figma-color-bg-danger-hover);
 }
 `;
 
@@ -49,7 +99,7 @@ export const TSConfig = (framework: string) => {
     "lib": ["es5", "es6", "dom"],
     "outDir": "./dist/",
     "sourceMap": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "module": "commonjs",
     "target": "es6",
     "moduleResolution": "node",
@@ -62,6 +112,7 @@ export const TSConfig = (framework: string) => {
   if (framework === "react") {
     return `{
   "compilerOptions": {
+    "noImplicitAny": false,
     "composite": true,
     "target": "ES2020",
     "useDefineForClassFields": true,
@@ -94,7 +145,8 @@ export const TSConfig = (framework: string) => {
     "target": "es6",
     "lib": ["es6", "dom"],
     "strict": true,
-    "typeRoots": ["./node_modules/@types", "./node_modules/@figma"]
+    "typeRoots": ["./node_modules/@types", "./node_modules/@figma"],
+    "noImplicitAny": false,
   }
 }`;
   }
